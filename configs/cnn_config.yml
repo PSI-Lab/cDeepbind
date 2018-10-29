@@ -1,0 +1,14 @@
+num_final_runs: 5
+model_type: CNN_struct
+train_epochs: 20
+batch_size_boosting: False
+hp_epochs: 10
+minib: 100
+batch_size_steps: 3
+cv_folds: 3
+hp_dir: 'hyperparameters'
+result_dir: 'results'
+model_dir: 'models'
+num_calibrations: 5
+recalibrate: False
+summary_only: False
