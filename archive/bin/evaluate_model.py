@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import yaml
 
-import deepbind_model.utils as utils
+import archive.deepbind_model.utils as utils
 
 
 def main(target_protein, model_type, evaluation_type, CLIPSEQ_experiment=None):
@@ -13,7 +13,7 @@ def main(target_protein, model_type, evaluation_type, CLIPSEQ_experiment=None):
         protein_name = target_protein.split('_')[0]
     else:
         protein_name = target_protein
-    config = utils.load_calibration({'hp_dir':'hyperparameters','model_type':model_type,'protein':protein_name})
+    config = utils.load_calibration({'hp_dir': 'hyperparameters', 'model_type':model_type, 'protein':protein_name})
     if not (config):
         print("[!] No trained model to evaluate")
         print("[!] Exiting")
@@ -53,7 +53,7 @@ def main(target_protein, model_type, evaluation_type, CLIPSEQ_experiment=None):
                                'w'))
             else:
                 (cost_train, cost_test, pearson_test, pearson_ensemble, cost_ensemble) = utils.run_epoch_parallel(sess, models, input_data, {'minib':2000}, epoch=1, train=False,
-                                                         verbose=False, testing=True, scores=False)
+                                                                                                                  verbose=False, testing=True, scores=False)
                 # (cost_train, cost_test, training_pearson, test_pearson, training_scores,
                 #  test_scores) = utils.run_epoch_parallel(sess, models, input_data, config, epoch=1, train=False,
                 #                                          verbose=False, testing=True, scores=True)

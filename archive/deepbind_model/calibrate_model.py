@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-import deepbind_model.utils as utils
+import archive.deepbind_model.utils as utils
 
 
 def calibrate_model(train_config):
@@ -41,7 +41,7 @@ def calibrate_model(train_config):
                 train_config['minib'] = 200
                 (val_cost[fold, :, :],
                  val_pearson[fold, :, :],_,_) = \
-                    utils.train_model_parallel(session, train_config, models, inputs[fold],epochs=epochs, early_stop=False)
+                    utils.train_model_parallel(session, train_config, models, inputs[fold], epochs=epochs, early_stop=False)
 
     val_cost = np.mean(np.transpose(val_cost, [1, 2, 0]), axis=2)
     val_pearson = np.mean(np.transpose(val_pearson, [1, 2, 0]), axis=2)

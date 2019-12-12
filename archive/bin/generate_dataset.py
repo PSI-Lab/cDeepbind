@@ -2,8 +2,8 @@ import argparse
 import os.path
 import subprocess
 
-from deepbind_model.utils import load_data_clipseq_shorter
-from deepbind_model.utils import load_data_rnac2009
+from archive.deepbind_model.utils import load_data_clipseq_shorter
+from archive.deepbind_model.utils import load_data_rnac2009
 
 
 def clip_struct_compute():

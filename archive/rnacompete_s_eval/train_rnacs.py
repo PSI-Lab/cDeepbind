@@ -7,8 +7,8 @@ import numpy as np
 import tensorflow as tf
 import yaml
 
-import deepbind_model.calibrate_model as calib
-import deepbind_model.utils as utils
+import archive.deepbind_model.calibrate_model as calib
+import archive.deepbind_model.utils as utils
 
 
 def main(target_protein, model_size_flag, model_testing_list, num_calibrations, recalibrate, num_final_runs,
@@ -56,8 +56,8 @@ def main(target_protein, model_size_flag, model_testing_list, num_calibrations, 
         with tf.Session() as session:
             (test_cost, test_pearson) = \
                 utils.train_model_parallel_rnacs(session, best_config[model_type],
-                                           models, inputs,
-                                           early_stop=False)
+                                                 models, inputs,
+                                                 early_stop=False)
             for i, model_type in enumerate(model_testing_list):
                 test_cost_filtered = np.zeros(test_cost[:, -1].shape)
                 #TODO save entire ensemble except for models with NAN pearson correlation

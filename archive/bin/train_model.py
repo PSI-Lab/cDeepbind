@@ -6,8 +6,8 @@ from time import time
 import numpy as np
 import tensorflow as tf
 import yaml
-import deepbind_model.calibrate_model as calib
-import deepbind_model.utils as utils
+import archive.deepbind_model.calibrate_model as calib
+import archive.deepbind_model.utils as utils
 
 
 def main(train_config):
@@ -29,7 +29,7 @@ def main(train_config):
         input_data = utils.model_input(input_config, inf, model_type, validation=False)
         for runs in range(num_final_runs):
             with tf.variable_scope('model' + str(runs)):
-                models.append(utils.model(best_config,input_data, model_type))
+                models.append(utils.model(best_config, input_data, model_type))
                 inputs.append(input_data)
         sv = tf.train.Supervisor(logdir=traindir)
         with sv.managed_session() as session:
@@ -65,7 +65,7 @@ def main(train_config):
             target_protein, model_type, pearson))
             utils.save_result(train_config,
                               ensemble_size=num_final_runs,
-                              new_pearson=pearson,new_cost=cost,
+                              new_pearson=pearson, new_cost=cost,
                               model_dir=traindir)
 
 
