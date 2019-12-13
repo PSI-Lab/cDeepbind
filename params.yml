@@ -1,0 +1,5 @@
+# From TargetRanch 5.0.2
+parameters:
+  # DO NOT EDIT!  This string is modified by bumpversion!
+  __version__: "1.0.0"
+

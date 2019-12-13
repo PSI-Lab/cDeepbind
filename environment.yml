@@ -1,0 +1,17 @@
+name: cdeepbind_public
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - google-api-python-client
+  - ipykernel
+  - python=2.7
+  - bumpversion
+  - cudatoolkit=10.0
+  - rnafoldr
+  - numba
+  - forgi
+  - pip
+  - pip:
+      - tensorflow-gpu==1.14.0
