@@ -1,3 +1,7 @@
+#cDeepBind
+cDeepBind is a fast and accurate model for learning sequence and structure specificities of RNA binding proteins.
+ 
+
 ## Model architecture
 ![arch](docs/cdeepbind_poster_schematic.png)
 
